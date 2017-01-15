@@ -14,7 +14,11 @@ perms:
 tar:
 	tar -pcvzf site$(VERSION).tgz install.site *.conf
 
-install: perms tar
+install-remote: perms tar
 	scp site$(VERSION).tgz $(DEST_HOST):$(DEST)
 	ssh $(DEST_HOST) "ls -l $(DEST) > $(DEST)/index.txt"
 	rm site$(VERSION).tgz
+
+install: perms tar
+	mv site$(VERSION).tgz $(DEST)
+	ls -l $(DEST) > $(DEST)/index.txt
