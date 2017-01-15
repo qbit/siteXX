@@ -2,5 +2,8 @@
 
 mv mk.conf /etc/mk.conf
 mv pkg.conf /etc/pkg.conf
+mv snap.pub /etc/signify/snap.pub
+
+mkdir -p /usr/local/pobj
 
 pkg_add -z python-2.7 git pkglocatedb

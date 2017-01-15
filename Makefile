@@ -12,7 +12,10 @@ perms:
 	chmod +x *.site
 
 tar:
-	tar -pcvzf site$(VERSION).tgz install.site *.conf
+	tar -pcvzf site$(VERSION).tgz \
+	install.site \
+	snap.pub \
+	*.conf
 
 install-remote: perms tar
 	scp site$(VERSION).tgz $(DEST_HOST):$(DEST)
