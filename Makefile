@@ -6,22 +6,20 @@ DEST=/var/www/htdocs/pub/OpenBSD/snapshots/$(ARCH)/
 PHONY: perms tar
 
 clean:
-	rm site$(VERSION).tgz
+	rm -rf build/
 
 perms:
-	chmod +x *.site
+	chmod +x src/*.site
 
 tar:
-	tar -pcvzf site$(VERSION).tgz \
-	install.site \
-	snap.pub \
-	*.conf
+	mkdir -p build
+	cd src && \
+	tar -pcvzf ../build/site$(VERSION).tgz *
 
 install-remote: perms tar
-	scp site$(VERSION).tgz $(DEST_HOST):$(DEST)
+	scp build/site$(VERSION).tgz $(DEST_HOST):$(DEST)
 	ssh $(DEST_HOST) "ls -l $(DEST) > $(DEST)/index.txt"
-	rm site$(VERSION).tgz
 
 install: perms tar
-	mv site$(VERSION).tgz $(DEST)
+	mv build/site$(VERSION).tgz $(DEST)
 	ls -l $(DEST) > $(DEST)/index.txt
