@@ -1,0 +1,6 @@
+#!/bin/sh
+
+mv mk.conf /etc/mk.conf
+mv pkg.conf /etc/pkg.conf
+
+pkg_add -z python-2.7 git monit go nmap pkglocatedb rsync
