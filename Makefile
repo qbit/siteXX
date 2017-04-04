@@ -1,4 +1,4 @@
-VERSION=60
+VERSION=61
 ARCH=amd64
 DEST_HOST=root@block
 DEST=/var/www/htdocs/pub/OpenBSD/snapshots/$(ARCH)/

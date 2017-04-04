@@ -1,8 +1,8 @@
 #!/bin/sh
 
-mv mk.conf /etc/mk.conf
-mv pkg.conf /etc/pkg.conf
-mv snap.pub /etc/signify/snap.pub
+mv mk.conf /etc/
+mv installurl /etc/
+mv snap.pub /etc/signify/
 
 mkdir -p /usr/local/pobj
 
